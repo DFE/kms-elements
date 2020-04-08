@@ -320,8 +320,8 @@ HttpEndpointImpl::HttpEndpointImpl (const boost::property_tree::ptree &conf,
     }
   };
 
-  uint httpServicePort = 0;
-  getConfigValue <uint, HttpEndpoint> (&httpServicePort, HTTP_SERVICE_PORT,
+  guint httpServicePort = 0;
+  getConfigValue <guint, HttpEndpoint> (&httpServicePort, HTTP_SERVICE_PORT,
       HttpEndPointServer::DEFAULT_PORT);
 
   std::string httpServiceAddress;

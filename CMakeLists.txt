@@ -60,6 +60,12 @@ set(SOUP_REQUIRED ^2.40)
 set(NICE_REQUIRED ^0.1.13)
 set(GLIBMM_REQUIRED ^2.37)
 
+if(MSYS)
+set(LIBNAME_OPENSSL OpenSSL)
+else()
+set(LIBNAME_OPENSSL openssl)
+endif()
+
 include(GenericFind)
 generic_find(LIBNAME Boost REQUIRED COMPONENTS unit_test_framework)
 generic_find(LIBNAME gstreamer-1.0 VERSION ${GST_REQUIRED} REQUIRED)
@@ -77,7 +83,7 @@ generic_find(LIBNAME libsoup-2.4 VERSION ${SOUP_REQUIRED} REQUIRED)
 generic_find(LIBNAME nice VERSION ${NICE_REQUIRED} REQUIRED)
 generic_find(LIBNAME gio-2.0 VERSION ${GLIB_REQUIRED} REQUIRED)
 generic_find(LIBNAME uuid REQUIRED)
-generic_find(LIBNAME openssl REQUIRED)
+generic_find(LIBNAME ${LIBNAME_OPENSSL} REQUIRED)
 
 set(CMAKE_INSTALL_GST_PLUGINS_DIR ${CMAKE_INSTALL_LIBDIR}/gstreamer-1.0)
 

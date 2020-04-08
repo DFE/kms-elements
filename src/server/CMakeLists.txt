@@ -10,6 +10,10 @@ set(KMS_ELEMENTS_IMPL_HEADERS
   implementation/CertificateManager.hpp
 )
 
+if(MSYS)
+set(KMS_ELEMENTS_LINK_OS_LIBRARIES crypto)
+endif()
+
 include(CodeGenerator)
 generate_code(
   MODELS ${CMAKE_CURRENT_SOURCE_DIR}/interface
@@ -31,5 +35,6 @@ generate_code(
       ${nice_LIBRARIES}
       ${KmsGstCommons_LIBRARIES}
       ${openssl_LIBRARIES}
+      ${KMS_ELEMENTS_LINK_OS_LIBRARIES}
   SERVER_STUB_DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/implementation/objects
 )

@@ -59,12 +59,17 @@ if(SANITIZERS_ENABLED)
   add_sanitizers(webrtcdataproto)
 endif()
 
+if(MSYS)
+set(WEBRTCDATAPROTO_LINK_OS_LIBRARIES gstsdp-1.0 kmssdpagent)
+endif()
+
 target_link_libraries(webrtcdataproto
   ${KmsGstCommons_LIBRARIES}
   ${gstreamer-1.0_LIBRARIES}
   ${gstreamer-base-1.0_LIBRARIES}
   ${gstreamer-app-1.0_LIBRARIES}
   ${gstreamer-sctp-1.0_LIBRARIES}
+  ${WEBRTCDATAPROTO_LINK_OS_LIBRARIES}
 )
 
 set_property (TARGET webrtcdataproto

@@ -39,6 +39,10 @@ set_property(TARGET kmsrtpendpoint
     ${gstreamer-1.0_INCLUDE_DIRS}
 )
 
+if(MSYS)
+set(KMSRTPENDPOINT_LINK_OS_LIBRARIES gstsdp-1.0 kmssdpagent bcrypt)
+endif()
+
 target_link_libraries(kmsrtpendpoint
   ${KmsGstCommons_LIBRARIES}
   ${gstreamer-1.0_LIBRARIES}
@@ -46,6 +50,7 @@ target_link_libraries(kmsrtpendpoint
   ${gstreamer-sdp-1.0_LIBRARIES}
   ${gstreamer-pbutils-1.0_LIBRARIES}
   ${nice_LIBRARIES}
+  ${KMSRTPENDPOINT_LINK_OS_LIBRARIES}
 )
 
 install(

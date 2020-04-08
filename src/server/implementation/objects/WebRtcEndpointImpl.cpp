@@ -61,7 +61,7 @@ GST_DEBUG_CATEGORY_STATIC (GST_CAT_DEFAULT);
 namespace kurento
 {
 
-static const uint DEFAULT_STUN_PORT = 3478;
+static const guint DEFAULT_STUN_PORT = 3478;
 
 static std::once_flag check_openh264, certificates_flag;
 static std::string defaultCertificateRSA, defaultCertificateECDSA;
@@ -532,8 +532,8 @@ WebRtcEndpointImpl::WebRtcEndpointImpl (const boost::property_tree::ptree &conf,
               " you can set one or default to ICE automatic discovery");
   }
 
-  uint stunPort = 0;
-  if (!getConfigValue <uint, WebRtcEndpoint> (&stunPort, "stunServerPort",
+  guint stunPort = 0;
+  if (!getConfigValue <guint, WebRtcEndpoint> (&stunPort, "stunServerPort",
       DEFAULT_STUN_PORT)) {
     GST_INFO ("STUN port not found in config;"
               " using default value: %d", DEFAULT_STUN_PORT);

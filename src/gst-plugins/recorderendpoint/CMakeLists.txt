@@ -22,16 +22,16 @@ endif()
 set_property (TARGET recorderendpoint
   PROPERTY INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_BINARY_DIR}/../../..
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
     ${KmsGstCommons_INCLUDE_DIRS}
 )
 
 target_link_libraries(recorderendpoint
   ${KmsGstCommons_LIBRARIES}
-  ${gstreamer-1.5_LIBRARIES}
-  ${gstreamer-base-1.5_LIBRARIES}
-  ${gstreamer-app-1.5_LIBRARIES}
-  ${gstreamer-pbutils-1.5_LIBRARIES}
+  ${gstreamer-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-base-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-app-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-pbutils-${GST_VERSION}_LIBRARIES}
 )
 
 install(

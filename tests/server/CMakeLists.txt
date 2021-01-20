@@ -24,7 +24,7 @@ set_property(TARGET test_constructors
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/interface/generated-cpp
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/implementation/generated-cpp
     ${KMSCORE_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
 target_link_libraries(test_constructors
   ${LIBRARY_NAME}impl
@@ -45,7 +45,7 @@ target_link_libraries(test_constructors
 #     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/implementation/generated-cpp
 #     ${KMSCORE_INCLUDE_DIRS}
 #     ${glibmm-2.4_INCLUDE_DIRS}
-#     ${gstreamer-1.5_INCLUDE_DIRS}
+#     ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 # )
 # target_link_libraries(test_webrtc_endpoint
 #   ${LIBRARY_NAME}impl
@@ -65,7 +65,7 @@ set_property(TARGET test_rtp_endpoint
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/interface/generated-cpp
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/implementation/generated-cpp
     ${KMSCORE_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
 target_link_libraries(test_rtp_endpoint
   ${LIBRARY_NAME}impl
@@ -84,7 +84,7 @@ set_property(TARGET test_recorder
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/interface/generated-cpp
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/implementation/generated-cpp
     ${KMSCORE_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
 target_link_libraries(test_recorder
   ${LIBRARY_NAME}impl
@@ -103,7 +103,7 @@ set_property(TARGET test_player
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/interface/generated-cpp
     ${CMAKE_CURRENT_BINARY_DIR}/../../src/server/implementation/generated-cpp
     ${KMSCORE_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
 target_link_libraries(test_player
   ${LIBRARY_NAME}impl

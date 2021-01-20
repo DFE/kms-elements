@@ -33,7 +33,7 @@ class HttpEndPointServer
 {
 public:
   static std::shared_ptr<HttpEndPointServer> getHttpEndPointServer (
-    const uint port, const std::string &iface, const std::string &addr);
+    const guint port, const std::string &iface, const std::string &addr);
   void start ();
   void stop ();
   void registerEndPoint (GstElement *endpoint, guint timeout,
@@ -43,7 +43,7 @@ public:
   gulong connectSignal (std::string name, GCallback c_handler,
                         gpointer user_data);
   void disconnectSignal (gulong id);
-  uint getPort ();
+  guint getPort ();
   std::string getInterface();
   std::string getAnnouncedAddress();
 
@@ -54,7 +54,7 @@ public:
 private:
   static std::shared_ptr<HttpEndPointServer> instance;
   static std::recursive_mutex mutex;
-  static uint port;
+  static guint port;
   static std::string interface;
   static std::string announcedAddr;
 

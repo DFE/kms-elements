@@ -36,16 +36,21 @@ set_property(TARGET rtpendpoint
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}/../../..
     ${KmsGstCommons_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
+
+if(MSYS)
+  set(KMSRTPENDPOINT_LINK_OS_LIBRARIES gstsdp-1.0 kmssdpagent bcrypt)
+endif()
 
 target_link_libraries(rtpendpoint
   ${KmsGstCommons_LIBRARIES}
-  ${gstreamer-1.5_LIBRARIES}
-  ${gstreamer-base-1.5_LIBRARIES}
-  ${gstreamer-sdp-1.5_LIBRARIES}
-  ${gstreamer-pbutils-1.5_LIBRARIES}
+  ${gstreamer-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-base-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-sdp-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-pbutils-${GST_VERSION}_LIBRARIES}
   ${nice_LIBRARIES}
+  ${KMSRTPENDPOINT_LINK_OS_LIBRARIES}
 )
 
 install(

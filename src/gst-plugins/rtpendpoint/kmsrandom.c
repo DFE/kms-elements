@@ -15,6 +15,11 @@
  *
  */
 
+#ifdef _WIN32
+#include <windows.h>
+#include <ntdef.h>
+#include <bcrypt.h>
+#else
 #include <unistd.h>  // 'syscall()' is not POSIX, requires GNU extensions in GCC
 #include <sys/syscall.h>
 #include <sys/types.h>
@@ -23,9 +28,30 @@
 #include <fcntl.h>
 
 #include <linux/random.h>
+#endif
+
 #include <glib.h>
 
 #include "kmsrandom.h"
+
+#ifdef _WIN32
+
+gchar *
+generate_random_key (guint size)
+{
+  gchar  *key  = NULL;
+  PUCHAR  buff = g_malloc0 (size);
+
+  NTSTATUS rc = BCryptGenRandom (NULL, buff, (ULONG) size, BCRYPT_USE_SYSTEM_PREFERRED_RNG);
+  if (NT_SUCCESS (rc)) {
+    key = g_base64_encode (buff, size);
+  }
+
+  g_free (buff);
+  return key;
+}
+
+#else
 
 #define RANDOM_NUMBER_SOURCE_DEVICE "/dev/urandom"
 
@@ -132,3 +158,5 @@ generate_random_key (guint size)
 
   return key;
 }
+
+#endif // _WIN32

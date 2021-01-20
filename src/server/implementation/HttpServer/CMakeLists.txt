@@ -43,12 +43,12 @@ set_property (TARGET kmshttpep
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${libsoup-2.4_INCLUDE_DIRS}
     ${KmsGstCommons_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
 
 target_link_libraries(kmshttpep
   ${glibmm-2.4_LIBRARIES}
-  ${gstreamer-1.5_LIBRARIES}
+  ${gstreamer-${GST_VERSION}_LIBRARIES}
   ${libsoup-2.4_LIBRARIES}
   ${uuid_LIBRARIES}
   ${gio-2.0_LIBRARIES}

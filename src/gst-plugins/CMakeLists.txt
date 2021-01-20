@@ -52,15 +52,15 @@ set_property (TARGET ${LIBRARY_NAME}plugins
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}/../..
     ${KmsGstCommons_INCLUDE_DIRS}
-    ${gstreamer-1.5_INCLUDE_DIRS}
+    ${gstreamer-${GST_VERSION}_INCLUDE_DIRS}
 )
 
 target_link_libraries(${LIBRARY_NAME}plugins
   ${KmsGstCommons_LIBRARIES}
-  ${gstreamer-1.5_LIBRARIES}
-  ${gstreamer-base-1.5_LIBRARIES}
-  ${gstreamer-app-1.5_LIBRARIES}
-  ${gstreamer-pbutils-1.5_LIBRARIES}
+  ${gstreamer-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-base-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-app-${GST_VERSION}_LIBRARIES}
+  ${gstreamer-pbutils-${GST_VERSION}_LIBRARIES}
   ${libsoup-2.4_LIBRARIES}
 )
 

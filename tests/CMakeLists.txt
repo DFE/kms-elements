@@ -2,7 +2,7 @@ include (TestHelpers)
 
 add_subdirectory(server)
 
-if (${gstreamer-check-1.5_FOUND})
+if (${gstreamer-check-${GST_VERSION}_FOUND})
   add_subdirectory(check)
 endif ()
 

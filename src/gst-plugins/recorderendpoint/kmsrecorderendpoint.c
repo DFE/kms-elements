@@ -19,6 +19,10 @@
 #endif
 
 #include <sys/stat.h>  // 'ACCESSPERMS' is not POSIX, requires GNU extensions in GCC
+// 'ACCESSPERMS' is not available on MSYS2
+#ifndef ACCESSPERMS
+#define ACCESSPERMS (S_IRWXU|S_IRWXG|S_IRWXO)
+#endif
 
 #include <string.h>
 #include <gst/gst.h>
